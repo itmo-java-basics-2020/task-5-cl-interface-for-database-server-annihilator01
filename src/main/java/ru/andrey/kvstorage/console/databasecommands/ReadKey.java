@@ -34,8 +34,8 @@ public class ReadKey implements DatabaseCommand {
         try {
             String result = db.read(tableName, key);
             return DatabaseCommandResult.success(result);
-        } catch (DatabaseException e) {
-            return DatabaseCommandResult.error(e.getMessage());
+        } catch (DatabaseException de) {
+            return DatabaseCommandResult.error(de.getMessage());
         }
     }
 }
