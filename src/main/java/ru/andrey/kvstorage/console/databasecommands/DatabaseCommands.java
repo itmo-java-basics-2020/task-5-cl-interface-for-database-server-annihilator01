@@ -65,11 +65,11 @@ public enum DatabaseCommands {
         }
     };
 
-    private static int CMD_NAME_INDEX = 0;
-    private static int DB_NAME_INDEX = 1;
-    private static int TABLE_NAME_INDEX = 2;
-    private static int KEY_INDEX = 3;
-    private static int VALUE_INDEX = 4;
+    private static final int CMD_NAME_INDEX = 0;
+    private static final int DB_NAME_INDEX = 1;
+    private static final int TABLE_NAME_INDEX = 2;
+    private static final int KEY_INDEX = 3;
+    private static final int VALUE_INDEX = 4;
 
     public abstract DatabaseCommand getCommand(ExecutionEnvironment env, String... args) throws DatabaseException;
 }

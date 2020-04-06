@@ -4,14 +4,6 @@ import java.util.Optional;
 
 public interface DatabaseCommandResult {
 
-    static DatabaseCommandResult success(String result) {
-        return new DatabaseSingleCommandResult(result, DatabaseCommandStatus.SUCCESS, true, null);
-    }
-
-    static DatabaseCommandResult error(String message) {
-        return new DatabaseSingleCommandResult(null, DatabaseCommandStatus.FAILED, false, message);
-    }
-
     Optional<String> getResult();
 
     DatabaseCommandStatus getStatus();
@@ -19,6 +11,14 @@ public interface DatabaseCommandResult {
     boolean isSuccess();
 
     String getErrorMessage();
+
+    static DatabaseCommandResult success(String result) {
+        return new DatabaseSingleCommandResult(result, DatabaseCommandStatus.SUCCESS, true, null);
+    }
+
+    static DatabaseCommandResult error(String message) {
+        return new DatabaseSingleCommandResult(null, DatabaseCommandStatus.FAILED, false, message);
+    }
 
     enum DatabaseCommandStatus {
         SUCCESS, FAILED

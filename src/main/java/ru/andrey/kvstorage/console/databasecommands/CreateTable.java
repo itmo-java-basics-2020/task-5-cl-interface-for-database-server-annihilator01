@@ -31,7 +31,7 @@ public class CreateTable implements DatabaseCommand {
         Database db = optionalDatabase.get();
         try {
             db.createTableIfNotExists(tableName);
-            return DatabaseCommandResult.success(null);
+            return DatabaseCommandResult.success("CREATE_TABLE: table '" + tableName + "' created in database '" + databaseName + "'");
         } catch (DatabaseException de) {
             return DatabaseCommandResult.error(de.getMessage());
         }

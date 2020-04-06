@@ -35,7 +35,8 @@ public class UpdateKey implements DatabaseCommand {
         Database db = optionalDatabase.get();
         try {
             db.write(tableName, key, value);
-            return DatabaseCommandResult.success(null);
+            return DatabaseCommandResult.success("UPDATE_KEY: key '" + key + "' associated with value '" + value +
+                                                 "' in table '" + tableName + "' in database '" + databaseName + "'");
         } catch (DatabaseException de) {
             return DatabaseCommandResult.error(de.getMessage());
         }
